@@ -1,4 +1,6 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
+from .models import Мероприятие
 
 def index(request):
-    return HttpResponse('asd')
+    events = Мероприятие.objects.all()
+    return render(request, 'main/index.html',{'events': events})
